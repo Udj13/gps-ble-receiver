@@ -5,30 +5,26 @@ use esp_idf_hal::prelude::Hertz;
 use esp_idf_hal::sys::EspError;
 use esp_idf_hal::uart::UartDriver;
 
-pub struct GPS {
+pub struct Gps {
     uart: UartDriver<'static>,
     nmea_buffer: String,
 }
 
-impl GPS {
-    pub fn new() -> GPS {
-        let uart = GPS::start_gps_uart().expect("Can't create UART");
+impl Gps {
+    pub fn new() -> Gps {
+        let uart = Gps::start_gps_uart().expect("Can't create UART");
         let nmea_buffer = String::with_capacity(1024);
-        GPS { uart, nmea_buffer }
+        Gps { uart, nmea_buffer }
     }
 
     pub fn filtered_read_gps(&mut self, pattern: &str) -> Option<String> {
-        let read_result = GPS::read_gps(&self.uart);
+        let read_result = Gps::read_gps(&self.uart);
         match read_result {
             Ok(new_char) => self.nmea_buffer.push(new_char),
             Err(e) => println!("Error uart reading: {}", e),
         }
 
-        let filtered_result = GPS::filter_nmea(&mut self.nmea_buffer, pattern);
-        match filtered_result {
-            Some(nmea) => Some(nmea),
-            None => None,
-        }
+        Gps::filter_nmea(&mut self.nmea_buffer, pattern)
     }
 
     fn start_gps_uart() -> Result<UartDriver<'static>, EspError> {
@@ -50,14 +46,12 @@ impl GPS {
         uart_result
     }
 
-
     fn read_gps(uart: &UartDriver) -> Result<char, anyhow::Error> {
         let mut buf = [0_u8; 1];
         uart.read(&mut buf, BLOCK)?;
 
         Ok(char::from(buf[0]))
     }
-
 
     fn filter_nmea(nmea_buffer: &mut String, pattern: &str) -> Option<String> {
         if nmea_buffer.ends_with("\r\n") {
