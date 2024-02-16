@@ -28,7 +28,7 @@ impl Gps {
     }
 
     fn start_gps_uart() -> Result<UartDriver<'static>, EspError> {
-        let peripherals = Peripherals::take()?;
+        let peripherals = Peripherals::take().expect("Can't take peripherals for GPS UART");
         let tx = peripherals.pins.gpio16;
         let rx = peripherals.pins.gpio17;
 
