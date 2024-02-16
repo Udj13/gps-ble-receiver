@@ -17,16 +17,15 @@ fn main() {
     let mut gps = Gps::new();
 
     log::info!("Start BLE");
-    let mut ble = Ble::new();
-    ble.send("test BLE output");
+    let mut ble = Ble::new("GPS");
 
     loop {
-        // we are using thread::sleep here to make sure the watchdog isn't triggered
-        FreeRtos::delay_ms(10);
-
         let nmea_filtered_result = gps.filtered_read_gps(NMEA_PATTERN);
         if let Some(nmea) = nmea_filtered_result {
             ble.send(&nmea);
         }
+
+        // we are using thread::sleep here to make sure the watchdog isn't triggered
+        FreeRtos::delay_ms(10);
     }
 }

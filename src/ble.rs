@@ -1,5 +1,6 @@
 use esp32_nimble::utilities::mutex::Mutex;
 use esp32_nimble::{uuid128, BLECharacteristic, BLEDevice, BLEReturnCode, NimbleProperties};
+use esp_idf_hal::delay::FreeRtos;
 use std::sync::Arc;
 
 pub struct Ble {
@@ -7,7 +8,7 @@ pub struct Ble {
 }
 
 impl Ble {
-    pub fn new() -> Ble {
+    pub fn new(name: &str) -> Ble {
         let ble_device = BLEDevice::take();
         let ble_advertising = ble_device.get_advertising();
         let server = ble_device.get_server();
@@ -17,7 +18,7 @@ impl Ble {
 
             server
                 .update_conn_params(desc.conn_handle(), 24, 48, 0, 60)
-                .expect("Cant't update connection parameters");
+                .expect("Can't update connection parameters");
         });
 
         server.on_disconnect(|_desc, reason| {
@@ -34,10 +35,10 @@ impl Ble {
         notifying_characteristic.lock().set_value(b"Initial value.");
 
         ble_advertising
-            .name("AGRO NAVIGATION")
+            .name(name)
             .add_service_uuid(uuid128!("aea7d00f-ae87-47b4-bc55-cada2dbdf1f4"))
             .start()
-            .unwrap();
+            .expect("Can't create advertising");
 
         Ble {
             notifying_characteristic,
@@ -54,7 +55,10 @@ impl Ble {
 
             self.notifying_characteristic
                 .lock()
-                .set_value(chunk.as_bytes());
+                .set_value(chunk.as_bytes())
+                .notify();
+
+            FreeRtos::delay_ms(10);
         }
     }
 
@@ -63,7 +67,7 @@ impl Ble {
         let mut remaining_text = text;
 
         while !remaining_text.is_empty() {
-            let chunk = &remaining_text[..23.min(remaining_text.len())];
+            let chunk = &remaining_text[..21.min(remaining_text.len())];
             chunks.push(chunk);
             remaining_text = &remaining_text[chunk.len()..];
         }
