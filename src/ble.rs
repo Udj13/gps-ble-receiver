@@ -25,18 +25,18 @@ impl Ble {
             println!("Client disconnected ({:?})", BLEReturnCode(reason as _));
         });
 
-        let service_uuid = uuid128!("aea7d00f-ae87-47b4-bc55-cada2dbdf1f4"); //???
+        let service_uuid = uuid128!("0000ffa2-ae87-47b4-bc55-cada2dbdf1f4");
         let service = server.create_service(service_uuid);
 
         let notifying_characteristic = service.lock().create_characteristic(
-            uuid128!("bd914a74-c7c9-486d-9142-fd5fba002bcc"),
+            uuid128!("0000ffe1-c7c9-486d-9142-fd5fba002bcc"),
             NimbleProperties::READ | NimbleProperties::NOTIFY,
         );
         notifying_characteristic.lock().set_value(b"Initial value.");
 
         ble_advertising
             .name(name)
-            .add_service_uuid(uuid128!("aea7d00f-ae87-47b4-bc55-cada2dbdf1f4"))
+            .add_service_uuid(service_uuid) // service uuid
             .start()
             .expect("Can't create advertising");
 
