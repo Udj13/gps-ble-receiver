@@ -1,10 +1,13 @@
 use esp32_nimble::utilities::mutex::Mutex;
 use esp32_nimble::{uuid128, BLECharacteristic, BLEDevice, BLEReturnCode, NimbleProperties};
 use esp_idf_hal::delay::FreeRtos;
-use std::sync::Arc;
+use std::sync::mpsc::{Receiver, Sender};
+use std::sync::{mpsc, Arc};
 
 pub struct Ble {
     notifying_characteristic: Arc<Mutex<BLECharacteristic>>,
+    tx: Sender<String>,
+    rx: Receiver<String>,
 }
 
 impl Ble {
@@ -40,8 +43,20 @@ impl Ble {
             .start()
             .expect("Can't create advertising");
 
+        println!("Starting BLE thread");
+
+        let (tx, rx) = mpsc::channel();
+
+        std::thread::spawn(|| loop {
+            println!("Hello from BLE thread");
+
+            FreeRtos::delay_ms(5000);
+        });
+
         Ble {
             notifying_characteristic,
+            rx,
+            tx,
         }
     }
 
