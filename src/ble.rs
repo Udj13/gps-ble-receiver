@@ -85,7 +85,7 @@ impl Ble {
     pub fn send(&mut self, output: &str) {
         self.tx
             .send(output.parse().unwrap())
-            .expect("Error: Send to thread");
+            .expect("Error while sending to BLE thread");
     }
 
     fn split_text_into_chunks(text: &str, chunk_size: usize) -> Vec<&str> {
