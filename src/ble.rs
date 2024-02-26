@@ -14,6 +14,8 @@ impl Ble {
         let ble_advertising = ble_device.get_advertising();
         let server = ble_device.get_server();
 
+        println!("{}, start BLE configuration", name);
+
         server.on_connect(|server, desc| {
             println!("BLE client connected");
 
@@ -34,13 +36,19 @@ impl Ble {
             characteristic_uuid,
             NimbleProperties::READ | NimbleProperties::NOTIFY,
         );
-        notifying_characteristic.lock().set_value(b"Initial value.");
+        notifying_characteristic.lock().set_value(b"GNSS BLE receiver.");
+
+        ble_advertising.stop().expect("Can't stop BLE advertising");
 
         ble_advertising
             .name(name)
-            .add_service_uuid(service_uuid) // service uuid
+            .add_service_uuid(service_uuid);
+
+        FreeRtos::delay_ms(10); // time to set settings
+
+        ble_advertising // service uuid
             .start()
-            .expect("Can't create BLE advertising");
+            .expect("Can't start BLE advertising");
 
         println!("Starting BLE thread");
         let (tx, rx) = mpsc::channel::<String>();
