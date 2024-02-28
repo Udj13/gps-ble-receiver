@@ -36,13 +36,13 @@ impl Ble {
             characteristic_uuid,
             NimbleProperties::READ | NimbleProperties::NOTIFY,
         );
-        notifying_characteristic.lock().set_value(b"GNSS BLE receiver.");
+        notifying_characteristic
+            .lock()
+            .set_value(b"GNSS BLE receiver.");
 
         ble_advertising.stop().expect("Can't stop BLE advertising");
 
-        ble_advertising
-            .name(name)
-            .add_service_uuid(service_uuid);
+        ble_advertising.name(name).add_service_uuid(service_uuid);
 
         FreeRtos::delay_ms(10); // time to set settings
 
@@ -86,7 +86,7 @@ impl Ble {
                     FreeRtos::delay_ms(10);
                 }
             }
-            println!("Thread idle\n");
+            println!("BLE thread idle\n");
         });
     }
 
