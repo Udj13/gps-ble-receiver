@@ -35,6 +35,7 @@ esp-idf-hal = "0.42.5"
 esp32-nimble = "0.5.1"
 
 esp-idf-sys = "0.33.7"
+colored = "2.1.0"
 
 [build-dependencies]
 embuild = "0.31.3"

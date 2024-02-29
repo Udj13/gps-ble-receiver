@@ -8,15 +8,13 @@ use wifi::Wifi;
 
 use esp_idf_hal::delay::FreeRtos;
 
-const NMEA_PATTERN: &str = "$GNGGA";
-
 fn main() {
     esp_idf_svc::sys::link_patches();
     esp_idf_hal::sys::link_patches();
     esp_idf_svc::log::EspLogger::initialize_default();
 
     log::info!("Start NMEA listener");
-    let mut gps = Gps::new();
+    let gps = Gps::new();
 
     log::info!("Start BLE");
     let mut ble = Ble::new("GPS");
@@ -25,8 +23,8 @@ fn main() {
     let mut wifi = Wifi::new();
 
     loop {
-        let nmea_filtered_result = gps.filtered_read_gps(NMEA_PATTERN);
-        if let Some(nmea) = nmea_filtered_result {
+        if let Ok(nmea) = gps.rx.recv() {
+            println!("{}", nmea);
             ble.send(&nmea);
             wifi.send("123456", &nmea);
         }
