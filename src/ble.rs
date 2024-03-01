@@ -3,6 +3,7 @@ use esp32_nimble::{uuid128, BLECharacteristic, BLEDevice, BLEReturnCode, NimbleP
 use esp_idf_hal::delay::FreeRtos;
 use std::sync::mpsc::{Receiver, Sender};
 use std::sync::{mpsc, Arc};
+use colored::*;
 
 pub struct Ble {
     tx: Sender<String>,
@@ -50,7 +51,7 @@ impl Ble {
             .start()
             .expect("Can't start BLE advertising");
 
-        println!("Starting BLE thread");
+        println!("{}", "Starting BLE thread".on_blue());
         let (tx, rx) = mpsc::channel::<String>();
         Self::start_ble_thread(notifying_characteristic, rx);
 
@@ -76,7 +77,7 @@ impl Ble {
                 let text_chunks = Self::split_text_into_chunks(output, CHUNK_SIZE);
 
                 for (i, chunk) in text_chunks.iter().enumerate() {
-                    println!("Chunk {}: {}", i + 1, chunk);
+                    println!("Chunk {}: {}", i + 1, chunk.on_blue());
 
                     notifying_characteristic
                         .lock()
