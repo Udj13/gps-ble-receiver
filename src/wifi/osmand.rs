@@ -27,7 +27,7 @@ pub fn gngga_to_osmand(nmea_sentence: &str, id: &str) -> Option<String> {
     let timestamp = format!("20{}-{}-{}T{}:{}:{}Z", year, month, day, hh, mm, ss);
 
     let url = format!(
-        "http://demo.traccar.org:5055/?id={}&lat={:.6}&lon={:.6}&timestamp={}",
+        "?id={}&lat={:.6}&lon={:.6}&timestamp={}",
         id, lat, lon, timestamp,
     );
 
