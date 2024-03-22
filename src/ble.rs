@@ -1,5 +1,5 @@
-// // use esp32_nimble::utilities::mutex::Mutex;
-// // use esp32_nimble::{uuid128, BLECharacteristic, BLEDevice, BLEReturnCode, NimbleProperties};
+// use esp32_nimble::utilities::mutex::Mutex;
+// use esp32_nimble::{uuid128, BLECharacteristic, BLEDevice, NimbleProperties};
 // use esp_idf_hal::delay::FreeRtos;
 // use std::sync::mpsc::{Receiver, Sender};
 // use std::sync::{mpsc, Arc};
@@ -26,7 +26,7 @@
 //         });
 //
 //         server.on_disconnect(|_desc, reason| {
-//             println!("BLE client disconnected ({:?})", BLEReturnCode(reason as _));
+//             println!("BLE client disconnected)");
 //         });
 //
 //         let service_uuid = uuid128!("0000ffa2-ae87-47b4-bc55-cada2dbdf1f4");
@@ -47,7 +47,8 @@
 //
 //         FreeRtos::delay_ms(10); // time to set settings
 //
-//         ble_advertising // service uuid
+//         ble_advertising
+//             .lock() // service uuid
 //             .start()
 //             .expect("Can't start BLE advertising");
 //

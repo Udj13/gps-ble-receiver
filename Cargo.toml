@@ -32,7 +32,8 @@ anyhow = "1.0.80"
 esp-idf-hal = "0.43.1"
 
 # https://crates.io/crates/esp32-nimble
-# esp32-nimble = "0.5.1" # - version conflict and device's name not changed
+
+esp32-nimble = "0.6.0"
 
 #esp-wifi = "0.3.0"
 

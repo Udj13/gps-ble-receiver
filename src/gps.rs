@@ -38,7 +38,7 @@ impl Gps {
 
             if nmea_buffer.ends_with("\r\n") {
                 if nmea_buffer.contains("GNRMC") {
-                    println!("{}", nmea_buffer.white().on_green());
+                    println!("{}", nmea_buffer.yellow());
                     tx.send(nmea_buffer.clone())
                         .expect("Can't send from GPS thread");
                     nmea_buffer.clear();
