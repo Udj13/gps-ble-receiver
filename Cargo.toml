@@ -27,17 +27,12 @@ embassy = ["esp-idf-svc/embassy-sync", "esp-idf-svc/critical-section", "esp-idf-
 log = { version = "0.4.21", default-features = false }
 esp-idf-svc = { version = "0.48.1", default-features = false }
 config = "0.14.0"
-anyhow = "1.0.80"
+anyhow = "1.0.83"
 
 esp-idf-hal = "0.43.1"
 
 # https://crates.io/crates/esp32-nimble
-
 esp32-nimble = "0.6.0"
-
-#esp-wifi = "0.3.0"
-
-#bluedroid = "0.3.7"
 
 
 esp-idf-sys = "0.34.1"
