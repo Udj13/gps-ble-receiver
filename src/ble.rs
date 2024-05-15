@@ -4,14 +4,22 @@ use esp_idf_hal::delay::FreeRtos;
 use std::sync::mpsc::{Receiver, Sender};
 use std::sync::{mpsc, Arc};
 use colored::*;
+use esp32_nimble::enums::{AuthReq, SecurityIOCap};
 
 pub struct Ble {
     tx: Sender<String>,
 }
 
+
 impl Ble {
     pub fn new(name: &str) -> Ble {
         let ble_device = BLEDevice::take();
+        ble_device  // iOs settings
+            .security()
+            .set_auth(AuthReq::Bond) // Bonding enables key storage for reconnection
+            .set_io_cap(SecurityIOCap::NoInputNoOutput) // You can choose any IO capability
+            .resolve_rpa(); // Crucial for managing iOS's dynamic Bluetooth addresses
+
         let ble_advertising = ble_device.get_advertising();
         let server = ble_device.get_server();
 
@@ -39,15 +47,16 @@ impl Ble {
         );
         notifying_characteristic
             .lock()
-            .set_value(b"AGRO/GPS");
+            .set_value(b"AGRO-GPS");
+
+        let mut ad_data = BLEAdvertisementData::new();
+        ad_data.
+            name(name). // main.rs
+            add_service_uuid(service_uuid);
 
         ble_advertising
             .lock()
-            .set_data(
-                BLEAdvertisementData::new()
-                    .name("AGRO/GPS")
-                    .add_service_uuid(service_uuid),
-            )
+            .set_data(&mut ad_data)
             .expect("Can't set BLE advertising");
 
         FreeRtos::delay_ms(10); // time to set settings

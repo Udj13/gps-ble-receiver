@@ -26,7 +26,7 @@ fn main() {
 
 
     println!("Start BLE");
-    let mut ble = Ble::new("GPS");
+    let mut ble = Ble::new("AGRO-GPS");
 
     loop {
         if let Ok(nmea) = gps.rx.recv() {
