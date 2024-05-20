@@ -34,3 +34,6 @@ Just connect 4 wires and connect USB
 
 ### Module firmware
 
+Releases: https://github.com/Udj13/gps-ble-receiver/releases/
+
+### How to flash module firmware
