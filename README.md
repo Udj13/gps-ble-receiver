@@ -11,9 +11,9 @@ App description: https://gps-free.net/parallel-driving/
 
 Another more simplest receiver - https://github.com/Udj13/Agro-Navigation-receiver
 
-This GPS receiver is better than first one because it's operates at free L5 satellites for decimeter accuracy, but more difficult to assemble.
+This GPS receiver is better than the first one because it operates at free L5 satellites for decimeter accuracy, but it is more difficult to assemble.
 
-For decimeter accuracy TAU1201 module is used.
+For decimeter accuracy, the TAU1201 module is used.
 ESP32 controller with built-in bluetooth low energy (BLE).
 
 You can build it yourself and use it with my parallel driving app.
@@ -44,7 +44,7 @@ You can build it yourself and use it with my parallel driving app.
 <img width="843" alt="Screenshot 2024-05-22 at 18 39 54" src="https://github.com/Udj13/gps-ble-receiver/assets/54446451/501e020e-88ed-4628-8cef-05caac05e644">
 
 
-Just connect 4 wires and connect USB
+Just connect 4 wires and connect USB:
 
 - GPS 5v pin -> ESP32 VIN pin
 - GPS GNG pin -> ESP32 GND pin
@@ -83,6 +83,6 @@ BAUD: 921600 (or less but the firmware will take longer)
 
 ### Connection to app
 
-Open Settings, then "Connect esternal GPS receiver..."
+Open Settings, then "Connect external GPS receiver..."
 
 Scan and connect "AGRO-GPS" device.
