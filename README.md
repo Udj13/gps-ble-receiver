@@ -67,7 +67,7 @@ Releases: https://github.com/Udj13/gps-ble-receiver/releases/
 ![Снимок экрана 2024-05-17 151842](https://github.com/Udj13/gps-ble-receiver/assets/54446451/4a78e5be-3918-43f7-807b-19eedb5f1a60)
 
 6. Select ChipType - ESP32
-7. Make the settings as in the picture and press Start
+7. Make the settings as in the picture and press Start. Sometimes you need to press "Boot" button on the board to start the firmware.
 
 ![Screenshot 2024-05-17 180945](https://github.com/Udj13/gps-ble-receiver/assets/54446451/b5f6d922-0f72-49b0-ae6c-8d3f9247b141)
 
