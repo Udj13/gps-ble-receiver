@@ -22,6 +22,10 @@ You can build it yourself and use it with my parallel driving app.
 ### Components
 
 - ESP32 module: ESP-WROOM-32
+
+> [!IMPORTANT]
+> ESP32, ESP32-C, ESP32-S, ... These are different modules, buy ESP32!
+
 - GPS L1 & L5 module: ALLYSTAR TAU1201
 - GPS antenna L1 & L5 ranges (1575.42MHz & 1176.42MHz)
 
@@ -52,8 +56,12 @@ Releases: https://github.com/Udj13/gps-ble-receiver/releases/
 
 ![Screenshot 2024-05-17 180945](https://github.com/Udj13/gps-ble-receiver/assets/54446451/b5f6d922-0f72-49b0-ae6c-8d3f9247b141)
 
-bootloader.bin - 0x1000
-partition-table.bin - 0x8000
-gps-ble-receiver.bin - 0x10000
+
+|file name            |address |
+|---------------------|--------|
+|bootloader.bin       |  0x1000|
+|partition-table.bin  |  0x8000|
+|gps-ble-receiver.bin | 0x10000|
+
 
 BAUD: 921600 (or less but the firmware will take longer)
