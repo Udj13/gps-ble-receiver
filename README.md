@@ -1,15 +1,18 @@
 # GPS BLE RECEIVER for AGRO NAVIGATION APP
 
-## DIY opensource hardware for parallel drivind
+## AGRO DIY opensource hardware for parallel drivind
 
-### AGRO GPS receiver for Parallel Driving App 
-DIY receiver for agro direction system (or guidance system).
+### Agro Navigation App for parallel driving 
+
+This is an agro direction system (or guidance system).
 
 App description: https://gps-free.net/parallel-driving/
 
 [<img width="273" alt="Screenshot 2024-05-22 at 17 55 38" src="https://github.com/Udj13/gps-ble-receiver/assets/54446451/04f9eece-f1e4-480b-ac1b-ad0384a98eca">](https://apps.apple.com/ru/app/agro-navigation/id1625258870)
 
 [<img width="271" alt="Screenshot 2024-05-22 at 17 56 20" src="https://github.com/Udj13/gps-ble-receiver/assets/54446451/18e10f75-b2f4-4f41-9fa1-3fa07ac9100b">](https://play.google.com/store/apps/details?id=com.shlyagin.parallel_driving)
+
+### GPS L5 receiver description
 
 Another more simplest receiver - https://github.com/Udj13/Agro-Navigation-receiver
 
