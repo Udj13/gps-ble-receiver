@@ -21,15 +21,28 @@ You can build it yourself and use it with my parallel driving app.
 
 ### Components
 
+<img width="781" alt="Screenshot 2024-05-22 at 18 40 43" src="https://github.com/Udj13/gps-ble-receiver/assets/54446451/64669c92-3fe4-4335-bfa6-42a565609366">
+
+
 - ESP32 module: ESP-WROOM-32
 
 > [!IMPORTANT]
 > ESP32, ESP32-C, ESP32-S, ... These are different modules, buy ESP32!
 
+
+<img width="807" alt="Screenshot 2024-05-22 at 18 41 23" src="https://github.com/Udj13/gps-ble-receiver/assets/54446451/748a0c2a-8d65-485a-83e4-9e80b66cc7f7">
+
 - GPS L1 & L5 module: ALLYSTAR TAU1201
+
+<img width="630" alt="Screenshot 2024-05-22 at 18 41 44" src="https://github.com/Udj13/gps-ble-receiver/assets/54446451/d6298cd8-aa34-4037-9ace-155bf0072c55">
+
+
 - GPS antenna L1 & L5 ranges (1575.42MHz & 1176.42MHz)
 
 ### Wiring
+
+<img width="843" alt="Screenshot 2024-05-22 at 18 39 54" src="https://github.com/Udj13/gps-ble-receiver/assets/54446451/501e020e-88ed-4628-8cef-05caac05e644">
+
 
 Just connect 4 wires and connect USB
 
@@ -37,6 +50,8 @@ Just connect 4 wires and connect USB
 - GPS GNG pin -> ESP32 GND pin
 - GPS TX pin -> ESP32 D17 pin
 - GPS RX pin -> ESP32 D16 pin
+
+Congratulations, your device is ready! Just need to update the firmware.
 
 ### Module firmware
 
@@ -65,3 +80,9 @@ Releases: https://github.com/Udj13/gps-ble-receiver/releases/
 
 
 BAUD: 921600 (or less but the firmware will take longer)
+
+### Connection to app
+
+Open Settings, then "Connect esternal GPS receiver..."
+
+Scan and connect "AGRO-GPS" device.
