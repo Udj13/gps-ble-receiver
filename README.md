@@ -1,5 +1,7 @@
 # GPS BLE RECEIVER for AGRO NAVIGATION APP
 
+## DIY opensource hardware for parallel drivind
+
 ### AGRO GPS receiver for Parallel Driving App 
 DIY receiver for agro direction system (or guidance system).
 
