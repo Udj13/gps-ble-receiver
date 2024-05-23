@@ -12,6 +12,14 @@ App description: https://gps-free.net/parallel-driving/
 
 [<img width="271" alt="Screenshot 2024-05-22 at 17 56 20" src="https://github.com/Udj13/gps-ble-receiver/assets/54446451/18e10f75-b2f4-4f41-9fa1-3fa07ac9100b">](https://play.google.com/store/apps/details?id=com.shlyagin.parallel_driving)
 
+If you don't have enough GPS accuracy in your phone, you can assemble and connect the easiest external GPS receiver.
+
+The main idea of the receiver is to filter the flow of RMC and GGA sentences from NMEA stream and send them via bluetooth (BLE) in the application
+
+This receiver can be used for other applications too, example code for using it: https://github.com/Udj13/test_nmea_reading/
+
+If you have any questions, write to me by email shlyagin@gmail.com
+
 ### GPS L5 receiver description
 
 Another more simplest receiver with standart GPS accuracy - https://github.com/Udj13/Agro-Navigation-receiver
