@@ -14,7 +14,7 @@ App description: https://gps-free.net/parallel-driving/
 
 ### GPS L5 receiver description
 
-Another more simplest receiver - https://github.com/Udj13/Agro-Navigation-receiver
+Another more simplest receiver with standart GPS accuracy - https://github.com/Udj13/Agro-Navigation-receiver
 
 This GPS receiver is better than the first one because it operates at free L5 satellites for decimeter accuracy, but it is more difficult to assemble.
 
