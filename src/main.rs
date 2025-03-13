@@ -13,9 +13,7 @@ fn main() {
     esp_idf_hal::sys::link_patches();
     esp_idf_svc::log::EspLogger::initialize_default();
 
-
     let peripherals = Peripherals::take().expect("GPS - can't take peripherals");
-
 
     println!("Start NMEA listener");
     let uart1 = peripherals.uart1;
@@ -23,7 +21,6 @@ fn main() {
     let rx = peripherals.pins.gpio17;
     let gps = Gps::new(uart1, AnyIOPin::from(tx), AnyIOPin::from(rx));
     println!("----------------------------------------------------");
-
 
     println!("Start BLE");
     let mut ble = Ble::new("AGRO-GPS");
@@ -34,8 +31,6 @@ fn main() {
 
             ble.send(&nmea);
         }
-
-
 
         // we are using thread::sleep here to make sure the watchdog isn't triggered
         FreeRtos::delay_ms(10);
