@@ -96,8 +96,6 @@ BAUD: 921600 (or less but the firmware will take longer)
 
 ### Using ESPFLASH
 
-[!NOTE]
-
 ```
 espflash flash --monitor path/to/gps-ble-receiver
 ```
