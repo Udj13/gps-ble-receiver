@@ -94,6 +94,11 @@ Releases: https://github.com/Udj13/gps-ble-receiver/releases/
 
 BAUD: 921600 (or less but the firmware will take longer)
 
+### How to flash merged image firmware
+
+![image](https://github.com/user-attachments/assets/4c9273b0-8249-42f3-bfb5-ff9a202630f8)
+
+
 ### Using ESPFLASH
 
 ```
