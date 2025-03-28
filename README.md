@@ -96,6 +96,12 @@ BAUD: 921600 (or less but the firmware will take longer)
 
 ### How to flash merged image firmware
 
+
+|file name            |address |
+|---------------------|--------|
+|merged-img.bin       |  0x00|
+
+
 ![image](https://github.com/user-attachments/assets/4c9273b0-8249-42f3-bfb5-ff9a202630f8)
 
 
