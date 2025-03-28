@@ -104,10 +104,6 @@ BAUD: 921600 (or less but the firmware will take longer)
 
 ![image](https://github.com/user-attachments/assets/4c9273b0-8249-42f3-bfb5-ff9a202630f8)
 
-
-
-<img width="715" alt="Screenshot 2025-03-18 at 17 52 28" src="https://github.com/user-attachments/assets/13cfd0c0-3b84-4049-a4a1-48626f87de0c" />
-
 Sometimes you need to press the BOOT button to flash the firmware
 
 ### Connection to app
