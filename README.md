@@ -111,3 +111,14 @@ Sometimes you need to press the BOOT button to flash the firmware
 Open Settings, then "Connect external GPS receiver..."
 
 Scan and connect "AGRO-GPS" device.
+
+### 5Hz video example
+
+![Outdoor tests](https://github.com/user-attachments/assets/d79e5813-15fb-4392-bd1a-628e1cf53358)
+
+
+Click to open video:
+
+[![YouTube DIY agro GPS receiver - 5 hz version example](https://github.com/user-attachments/assets/450e61f9-1aa3-4b3d-840e-3c5828bc74d4)](https://youtube.com/shorts/A83etRJbbtI)
+
+
