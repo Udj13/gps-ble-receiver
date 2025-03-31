@@ -114,7 +114,7 @@ Scan and connect "AGRO-GPS" device.
 
 ### 5Hz video example
 
-Outdoor testing in 2025:
+Outdoor tests in 2025:
 
 ![Outdoor tests](https://github.com/user-attachments/assets/411d4122-ff71-44d5-bb6e-64bff0697b84)
 
